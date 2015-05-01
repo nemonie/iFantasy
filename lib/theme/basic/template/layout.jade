@@ -1,0 +1,70 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        
+        //- title
+        case metadata.pageName
+            when 'Home'
+                title 主页
+            when 'Archive'
+                title 归档
+            when 'Edit'
+                title 编辑
+            when 'Add'
+                title 添加
+            when 'Error'
+                title 错误
+            when 'Login'
+                title 登陆
+            when 'Tags'
+                title 标签
+            when 'Tag'
+                title 标签:
+            when 'Post'
+                title 某文章
+        
+        meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
+        meta(name='apple-mobile-web-app-capable', content='yes')
+        meta(name='apple-mobile-web-app-status-bar-style', content='black')
+        meta(name='format-detection', content='telephone=no')
+        meta(name='renderer', content='webkit')
+        meta(name='keywords', content='#{metadata.siteKeyword}')
+        meta(name='description', content='#{metadata.siteDesc}')
+        
+        //- stylesheet
+        link(rel='stylesheet', href='/static/css/normalize.css')
+        link(rel='stylesheet', href='/static/css/pure-min.css')
+        link(rel='stylesheet', href='/static/css/grids-responsive-min.css')       
+        link(rel='stylesheet', href='/static/css/style.css')
+    
+    body
+        
+        .container
+        
+            //- header
+            #header
+                .logo
+                .nav
+
+            //- main
+            #main.pure-g
+                .pure-u-1.pure-u-md-3-4
+                    .content
+                        block content
+                .pure-u-1-4
+                    .siderbar
+
+            //- footer
+            #footer
+                | &copy; 
+                a(href='/')= metadata.siteName
+                | . Authored by 
+                a(href='#{metadata.homepage}', target='_blank')= metadata.siteAuthor
+                | . Powered by 
+                a(href='https://github.com/icodermo/iFantasy', target='_blank') iFantasy
+                | . Theme by 
+                a(href='http://www.codermo.com', target='_blank') codermo
+                | (inspired by 
+                a(href='http://chopstack.com/', target='_blank') cho
+                | ).

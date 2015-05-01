@@ -6,6 +6,7 @@ module.exports = {
     site: {
         name: 'codermo',
         description: 'codermo\'s blog',
+        keyword: 'blog, codermo',
         disqus: '',
         author: 'codermo',
         homepage: 'http://www.codermo.com'
