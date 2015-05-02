@@ -1,4 +1,19 @@
 extends layout
 
 block content
-    div hello world
+    for post in data.docs
+        .post
+            h2.post-title
+                a(href='/post/#{post.link}')= post.title
+            .post-tags
+                for tag in post.tags
+                    a(href='/tag/#{tag}')= tag
+            .post-date= post.date.toLocaleString()
+            .post-content!= post.brief
+
+    .pager
+        - for(var i=1; i<data.pager.pageNum+1; i++)
+            if i === data.pager.cpage
+                span= i
+            else
+                a(href='/?q=#{i}')= i

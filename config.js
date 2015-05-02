@@ -4,7 +4,8 @@
 module.exports = {
     theme: 'basic',
     site: {
-        name: 'codermo',
+        title: ' - iFantasy',
+        name: '<span>i</span>Fantasy',
         description: 'codermo\'s blog',
         keyword: 'blog, codermo',
         disqus: '',

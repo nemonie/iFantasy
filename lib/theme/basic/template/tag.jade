@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    .post
+        .tag-list
+            h2.tag-title
+                | Tag: 
+                span= data.tag
+            ul
+                for post, index in data.docs
+                    li
+                        span.date= post.date.toLocaleDateString()
+                        a(href='/post/#{post.link}')= post.title
