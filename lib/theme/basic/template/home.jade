@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    for post in data.docs
+    for post in iFantasy.data.docs
         .post
             h2.post-title
                 a(href='/post/#{post.link}')= post.title
@@ -12,8 +12,8 @@ block content
             .post-content!= post.brief
 
     .pager
-        - for(var i=1; i<data.pager.pageNum+1; i++)
-            if i === data.pager.cpage
+        - for(var i=1; i<iFantasy.data.pager.pageNum+1; i++)
+            if i === iFantasy.data.pager.cpage
                 span= i
             else
                 a(href='/?q=#{i}')= i

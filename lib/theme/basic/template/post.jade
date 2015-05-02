@@ -3,18 +3,18 @@ extends layout
 block content
     .post
         h2.post-title
-            a(href='/post/#{data.link}')= data.title
+            a(href='/post/#{iFantasy.data.link}')= iFantasy.data.title
         .post-tags
-            for tag in data.tags
+            for tag in iFantasy.data.tags
                 a(href='/tag/#{tag}')= tag
-        .post-date= data.date.toLocaleString()
-        if metadata.user
+        .post-date= iFantasy.data.date.toLocaleString()
+        if iFantasy.user
             .post-func
-                a(href='/edit/#{data.link}') 编辑
-                a#post-hide(data='/hide/#{data.link}', href='javascript:;') 删除
-        .post-content!= data.content
+                a(href='/edit/#{iFantasy.data.link}') 编辑
+                a#post-hide(data='/hide/#{iFantasy.data.link}', href='javascript:;') 删除
+        .post-content!= iFantasy.data.content
         
-    if metadata.user
+    if iFantasy.user
         script
             | document.getElementById('post-hide').addEventListener('click', function(){
             |     if(confirm('确定要删除吗？')){

@@ -2,10 +2,10 @@ extends layout
 
 block content
     .post
-        h2 Login
+        h2.page-title Login
         form.pure-form(method='post', action='/login')
             p
-                input(type='text', name='username', placeholder='username', required, value='#{data.username}')
+                input(type='text', name='username', placeholder='username', required, value='#{iFantasy.data.username}')
             p
                 input(type='password', name='password', placeholder='password', required)
             p

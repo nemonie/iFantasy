@@ -2,9 +2,8 @@ extends layout
 
 block content
     .post
-        .tags-list
-            h2.tags-title All Tags
-            ul.tags
-                for tag in data
-                    li(style="font-size: #{13 + tag.weight}px;")
-                        a(href="/tag/#{tag.name}")= tag.name
+        h2.page-title All Tags
+        ul.tags
+            for tag in iFantasy.data
+                li(style="font-size: #{13 + tag.weight}px;")
+                    a(href="/tag/#{tag.name}")= tag.name

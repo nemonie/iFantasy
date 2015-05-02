@@ -3,90 +3,38 @@ html
     head
         meta(charset='utf-8')
         
-        - var pageName = metadata.siteTitle;
-        //- title
-        case metadata.pageName
-            when 'Home'
-                - pageName = '主页' + pageName;
-            when 'Archive'
-                - pageName = '归档' + pageName;
-            when 'Edit'
-                - pageName = '编辑' + pageName;
-            when 'Add'
-                - pageName = '添加' + pageName;
-            when 'Error'
-                - pageName = '错误' + pageName;
-            when 'Login'
-                - pageName = '登录' + pageName;
-            when 'Tags'
-                - pageName = '标签' + pageName;
-            when 'Tag'
-                - pageName = '标签: ' + data.tag + pageName;
-            when 'Post'
-                - pageName = metadata.error ? '' : data.title + pageName;
-        
-        title= pageName
+        title
+            = extend.tipFormat(iFantasy.temp.pagename, iFantasy)
+            = iFantasy.site.title
         
         meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
         meta(name='apple-mobile-web-app-capable', content='yes')
         meta(name='apple-mobile-web-app-status-bar-style', content='black')
         meta(name='format-detection', content='telephone=no')
         meta(name='renderer', content='webkit')
-        meta(name='keywords', content='#{metadata.siteKeyword}')
-        meta(name='description', content='#{metadata.siteDesc}')
+        meta(name='keywords', content='#{iFantasy.site.keyword}')
+        meta(name='description', content='#{iFantasy.site.description}')
         
-        //- stylesheet
         link(rel='stylesheet', href='/static/css/normalize.css')
         link(rel='stylesheet', href='/static/css/pure-min.css')
         link(rel='stylesheet', href='/static/css/grids-responsive-min.css')       
         link(rel='stylesheet', href='/static/css/style.css')
     
     body
-        if metadata.msg
-            - var msg = '';
-            case metadata.msg
-                when 'add failed'
-                    - msg = '添加失败';
-                when 'add success'
-                    - msg = '添加成功';
-                when 'edit failed'
-                    - msg = '修改失败';
-                when 'edit success'
-                    - msg = '修改成功';
-                when 'hide failed'
-                    - msg = '删除失败';
-                when 'hide success'
-                    - msg = '删除成功';
-                when 'login failed'
-                    - msg = '登录失败';
-                when 'login success'
-                    - msg = '登录成功';
-                when 'logout success'
-                    - msg = '登出成功';
-                when 'must login'
-                    - msg = '没有权限';
-                when 'must logout'
-                    - msg = '已经登录';
-                when 'invalid link'
-                    - msg = '非法链接';
-                when 'database error'
-                    - msg = '数据库错误';
-            #msg= msg
+        #msg= extend.tipFormat(iFantasy.temp.message, iFantasy)
         
+        .container(class='#{iFantasy.temp.pagename}')
         
-        .container(class='#{metadata.pageName}')
-        
-            //- header
             #header
                 .site-title
-                    a.site-name(href='/')!= metadata.siteName
-                    .site-desc= metadata.siteDesc
+                    a.site-name(href='/')!= iFantasy.site.name
+                    .site-desc= iFantasy.site.description
                 .header-nav
-                    a.nav-home(href='/').current 博客
+                    a.nav-home(href='/') 博客
                     a.nav-archive(href='/archive') 归档
                     a.nav-tags(href='/tags') 标签
-                    a.nav-profile(href='#{metadata.homepage}', target='_blank') 关于
-            //- main
+                    a.nav-profile(href='#{iFantasy.site.homepage}', target='_blank') 关于
+
             #main.pure-g
                 .pure-u-1.pure-u-md-3-4
                     #content
@@ -95,23 +43,21 @@ html
                     #sidebar
                         .widget.widget-login
                             .widget-title 账户
-                            if !metadata.user
+                            if !iFantasy.user
                                 a(href='/login') 登录
                             else
                                 a(href='/logout') 登出
                         
-                        if metadata.user
+                        if iFantasy.user
                             .widget-title 功能
                             .widget.widget-func
                                 a(href='/add') 添加新文章
 
-
-            //- footer
             #footer
                 | &copy; 
-                a(href='/')!= metadata.siteName
+                a(href='/')!= iFantasy.site.name
                 | . Authored by 
-                a(href='#{metadata.homepage}', target='_blank')!= metadata.siteAuthor
+                a(href='#{iFantasy.site.homepage}', target='_blank')!= iFantasy.site.author
                 | . Powered by 
                 a(href='https://github.com/icodermo/iFantasy', target='_blank') iFantasy
                 | . Theme by 
@@ -120,7 +66,7 @@ html
                 a(href='http://chopstack.com/', target='_blank') cho
                 | ).
                 
-            if metadata.msg
+            if iFantasy.temp.message
                 script
                     | document.getElementById('msg').style.display = 'block';
                     | window.setTimeout(function(){ document.getElementById('msg').style.display = 'none'; }, 1500);

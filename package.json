@@ -22,14 +22,12 @@
   "homepage": "https://github.com/icodermo/iFantasy",
   "dependencies": {
     "body-parser": "^1.12.3",
-    "connect-flash": "^0.1.1",
     "connect-mongo": "^0.8.1",
     "express": "^4.12.3",
     "express-session": "^1.11.1",
     "jade": "^1.9.2",
     "marked": "^0.3.3",
     "mongoose": "^4.0.2",
-    "morgan": "^1.5.2",
     "serve-favicon": "^2.2.0"
   }
 }

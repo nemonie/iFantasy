@@ -2,17 +2,18 @@ extends layout
 
 block content
     .post
-        h2
+        h2.page-title
             | Edit: 
-            = data.title
-        form.pure-form(method='post', action='/edit/#{data.link}')
+            = iFantasy.data.title
+        form.pure-form(method='post', action='/edit/#{iFantasy.data.link}')
             p
-                input.pure-input-1(type='text', name='title', placeholder='title', required, value='#{data.title}')
+                input.pure-input-1(type='text', name='title', placeholder='title', required, value='#{iFantasy.data.title}')
             p
-                input.pure-input-1(type='text', name='link', placeholder='link', required, value='#{data.link}')
+                input.pure-input-1(type='text', name='link', placeholder='link', required, value='#{iFantasy.data.link}', disabled)
             p
-                input.pure-input-1(type='text', name='tags', placeholder='tags', required, value='#{data.tags ? data.tags.join(" ") : ""}')
+                input.pure-input-1(type='text', name='tags', placeholder='tags', value='#{iFantasy.data.tags.join(" ")}')
             p
-                textarea.pure-input-1(name='content', placeholder='content', required)= data.content
+                textarea.pure-input-1(name='content', placeholder='content', required)= iFantasy.data.content
             p
                 button.pure-button.pure-button-primary(type='submit') 保存
+                a.pure-button(href='/post/#{iFantasy.data.link}') 取消

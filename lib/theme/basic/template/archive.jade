@@ -1,22 +1,21 @@
 extends layout
 
 block content
-    .post
-        - var lastYear = 0;
-        for post, index in data.docs
-            if lastYear != post.date.getFullYear()
-                if index != 0
-                    | </ul></div>
-                - lastYear = post.date.getFullYear();
-                | <div class="archive-block">
-                h2.year-title= lastYear
-                | <ul>
-                li
-                    span.date= post.date.toLocaleDateString()
-                    a(href='/post/#{post.link}')= post.title
-            else
-                li
-                    span.date= post.date.toLocaleDateString()
-                    a(href='/post/#{post.link}')= post.title
-        if data.docs.length != 0
-            | </ul></div>
+    - var lastYear = 0;
+    for post, index in iFantasy.data.docs
+        if lastYear != post.date.getFullYear()
+            if index != 0
+                | </ul></div>
+            - lastYear = post.date.getFullYear();
+            | <div class="post">
+            h2.page-title= lastYear
+            | <ul>
+            li
+                span.date= post.date.toLocaleDateString()
+                a(href='/post/#{post.link}')= post.title
+        else
+            li
+                span.date= post.date.toLocaleDateString()
+                a(href='/post/#{post.link}')= post.title
+    if iFantasy.data.docs.length != 0
+        | </ul></div>
