@@ -15,6 +15,7 @@ block content
                 a(href='/tag/#{tag}')= tag
         if iFantasy.site.disqus
             .post-comment
+                #disqus_thread
                 script
                     | /* * * CONFIGURATION VARIABLES * * */
                     | var disqus_shortname = '#{iFantasy.site.disqus}';
