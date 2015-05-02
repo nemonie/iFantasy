@@ -1,0 +1,289 @@
+body {
+    background-color: #FFF;
+    color: #444;
+    font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 14px;
+    overflow-y: scroll;
+}
+
+html,
+button,
+input,
+select,
+textarea,
+.pure-g [class*="pure-u"] {
+    font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
+}
+
+a {
+    color: #6E7173;
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    color: #444;
+}
+
+a:focus {
+    outline: auto;
+}
+
+.container {
+    padding: 0 60px;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+#content {
+    padding-right: 50px;
+    padding-top: 20px;
+}
+
+#header {
+    padding: 58px 0 0;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    .site-title {
+        margin-bottom: 40px;
+        h1 {
+            padding: 0;
+            margin: 0;
+            height: 0;
+            overflow: hidden;
+        }
+        .site-name {
+            font: bold 38px/1.12 "Times New Roman", Georgia, Times, "Microsoft YaHei", sans-serif;
+            color: #555;
+            span, &:hover {
+                color: #777;
+            }
+        }
+        .site-desc {
+            margin: .2em 0 0;
+            color: #999;
+        }
+    }
+    .header-nav {
+        margin: 10px 0 -1px;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        a {
+            display: inline-block;
+            padding: 1px 20px 0;
+            height: 30px;
+            line-height: 30px;
+            color: #444;
+            font-size: 13px;
+            border: 1px solid transparent;
+            &:hover {
+                border-bottom-color: #444;
+            }
+        }
+    }
+}
+
+#sidebar {
+    border-left: 1px solid #ddd;
+    padding-left: 35px;
+    margin-top: 45px;
+    padding-bottom: 20px;
+    word-wrap: break-word;
+    .widget {
+        margin-bottom: 30px;
+        .widget-title {
+            color: #6E7173;
+            line-height: 2.7;
+            margin-top: 0;
+            font-size: 16px;
+            border-bottom: 1px solid #ddd;
+            display: block;
+            font-weight: normal;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            li {
+                margin: 5px 0;
+                line-height: 1.5;
+            }
+        }
+    }
+    #search {
+        position: relative;
+        overflow: hidden;
+        input {
+            padding: 12px 30px 11px 15px;
+            line-height: 1.5;
+            border: 1px solid #ddd;
+            width: 100%;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            outline: none;
+        }
+    }
+}
+
+.container.Home #header a.nav-home,
+.container.Archive #header a.nav-archive,
+.container.Tags #header a.nav-tags,
+.container.Tag #header a.nav-tags,
+.container.Post #header a.nav-home,
+.container.Add #header a.nav-home,
+.container.Edit #header a.nav-home,
+.container.Login #header a.nav-home,
+.container.Error #header a.nav-home {
+    border: 1px solid #ddd;
+    border-bottom: 1px solid #fff;
+}
+
+.post {
+    padding: 25px 0 15px;
+    .page-title {
+        margin: 0;
+        font: bold 25px / 1.1 Cambria, "Times New Roman", Georgia, Times, sans-serif;
+    }
+    .post-title {
+        margin: 0;
+        color: #555;
+        text-align: left;
+        font: bold 25px/1.1 Cambria, "Times New Roman", Georgia, Times, "Microsoft YaHei", sans-serif;
+        a {
+            color: #555;
+        }
+    }
+    .post-date {
+        padding: 0;
+        margin: 9px 0 0;
+        color: #999;
+        text-align: left;
+        display: block;
+        text-indent: .15em;
+    }
+    .post-content {
+        font-size: 15px;
+        line-height: 1.77;
+        color: #444;
+        padding-top: 27px;
+        overflow: hidden;
+    }
+    .post-tags {
+        padding-bottom: 1em;
+        a {
+            margin-right: .5em;
+            &:before {
+                content: '#';
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.pager {
+    border-top: 1px solid #ddd;
+    margin-top: 25px;
+    padding: 25px 0;
+    font-size: 14px;
+    text-align: right;
+    a, span {
+        display: inline-block;
+        padding: 3px 10px;
+        margin-left: 5px;
+        border: 1px solid #DDD;
+        &:hover {
+            border-color: #999;
+        }
+    }
+    span {
+        border: 0;
+    }
+}
+
+#footer {
+    padding: .8em 0 3.6em;
+    margin-top: 1em;
+    line-height: 1.5;
+    color: #999;
+    span {
+        font-size: .9em;
+    }
+}
+
+.post-archive {
+    font-size: 15px;
+    line-height: 2;
+    padding-bottom: .8em;
+    h2 {
+        margin: 0;
+        font: bold 25px / 1.1 Cambria, "Times New Roman", Georgia, Times, sans-serif;
+    }
+    .date {
+        padding-right: .7em;
+    }
+}
+
+.label-title {
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: normal;
+    color: #888;
+}
+
+strong,
+b,
+em {
+    padding: 1px 5px;
+    margin: 0 3px;
+    background-color: #fcfcf0;
+    font-weight: normal;
+}
+
+@media print,
+screen and (max-width: 48em) {
+    .container {
+        padding: 0 30px;
+    }
+    #content {
+        padding-right: 15px;
+    }
+    #sidebar {
+        display: none;
+    }
+    #header {
+        .site-title {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        .header-nav a {
+            padding: 0 15px;
+            line-height: 27px;
+            height: 27px;
+            font-size: 13px;
+        }
+    }
+}
+
+@media print,
+screen and (max-width: 35.5em) {
+    .container {
+        padding: 0 20px;
+    }
+    #content {
+        padding-right: 0;
+    }
+}
+
+textarea[name="content"] {
+    resize: vertical;
+    height: 15em;
+}
+
+.container.Edit form button {
+    margin-right: 15px;
+}

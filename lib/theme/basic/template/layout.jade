@@ -27,6 +27,7 @@ html
         
             #header
                 .site-title
+                    h1!= iFantasy.site.name
                     a.site-name(href='/')!= iFantasy.site.name
                     .site-desc= iFantasy.site.description
                 .header-nav
@@ -41,17 +42,26 @@ html
                         block content
                 .pure-u-1.pure-u-md-1-4
                     #sidebar
-                        .widget.widget-login
+                        .widget
+                            form#search
+                                input(placeholder="Search", type="text")
+                    
+                        .widget
                             .widget-title 账户
-                            if !iFantasy.user
-                                a(href='/login') 登录
-                            else
-                                a(href='/logout') 登出
+                            ul
+                                if !iFantasy.user
+                                    li
+                                        a(href='/login') 登录
+                                else
+                                    li
+                                        a(href='/logout') 登出
                         
                         if iFantasy.user
-                            .widget-title 功能
-                            .widget.widget-func
-                                a(href='/add') 添加新文章
+                            .widget
+                                .widget-title 功能
+                                ul
+                                    li
+                                        a(href='/add') 添加新文章
 
             #footer
                 | &copy; 

@@ -2,11 +2,13 @@ extends layout
 
 block content
     .post
-        h2.page-title
-            | Tag: 
-            span= iFantasy.data.tag
-        ul
-            for post in iFantasy.data.docs
-                li
-                    span.date= post.date.toLocaleDateString()
-                    a(href='/post/#{post.link}')= post.title
+        .post-archive
+            h1.label-title
+                | 包含标签
+                b= iFantasy.data.tag
+                | 的文章
+            ul
+                for post in iFantasy.data.docs
+                    li
+                        span.date= post.date.toLocaleDateString()
+                        a(href='/post/#{post.link}')= post.title

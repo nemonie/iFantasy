@@ -4,15 +4,28 @@ block content
     .post
         h2.post-title
             a(href='/post/#{iFantasy.data.link}')= iFantasy.data.title
-        .post-tags
-            for tag in iFantasy.data.tags
-                a(href='/tag/#{tag}')= tag
         .post-date= iFantasy.data.date.toLocaleString()
         if iFantasy.user
             .post-func
                 a(href='/edit/#{iFantasy.data.link}') 编辑
                 a#post-hide(data='/hide/#{iFantasy.data.link}', href='javascript:;') 删除
         .post-content!= iFantasy.data.content
+        .post-tags
+            for tag in iFantasy.data.tags
+                a(href='/tag/#{tag}')= tag
+        if iFantasy.site.disqus
+            .post-comment
+                script
+                    | /* * * CONFIGURATION VARIABLES * * */
+                    | var disqus_shortname = '#{iFantasy.site.disqus}';
+                    | /* * * DON'T EDIT BELOW THIS LINE * * */
+                    | (function() {
+                    |     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    |     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    |     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    | })();
+                noscript
+                    |Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
         
     if iFantasy.user
         script

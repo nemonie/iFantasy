@@ -8,7 +8,7 @@ module.exports = {
         name: '<span>i</span>Fantasy',
         description: 'codermo\'s blog',
         keyword: 'blog, codermo',
-        disqus: '',
+        disqus: 'codermo-blog',
         author: 'codermo',
         homepage: 'http://www.codermo.com'
     },
