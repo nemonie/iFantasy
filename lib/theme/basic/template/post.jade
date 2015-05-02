@@ -4,7 +4,7 @@ block content
     .post
         h2.post-title
             a(href='/post/#{iFantasy.data.link}')= iFantasy.data.title
-        .post-date= iFantasy.data.date.toLocaleString()
+        .post-date= extend.dateFormat('yyyy-MM-dd hh:mm:ss', iFantasy.data.date)
         if iFantasy.user
             .post-func
                 a(href='/edit/#{iFantasy.data.link}') 编辑

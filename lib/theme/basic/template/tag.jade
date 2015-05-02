@@ -10,5 +10,5 @@ block content
             ul
                 for post in iFantasy.data.docs
                     li
-                        span.date= post.date.toLocaleDateString()
+                        span.date= extend.dateFormat('yyyy-MM-dd', post.date)
                         a(href='/post/#{post.link}')= post.title

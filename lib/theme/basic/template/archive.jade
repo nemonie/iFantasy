@@ -12,11 +12,11 @@ block content
                 h2= lastYear
                 | <ul>
                 li
-                    span.date= post.date.toLocaleDateString()
+                    span.date= extend.dateFormat('yyyy-MM-dd', post.date)
                     a(href='/post/#{post.link}')= post.title
             else
                 li
-                    span.date= post.date.toLocaleDateString()
+                    span.date= extend.dateFormat('yyyy-MM-dd', post.date)
                     a(href='/post/#{post.link}')= post.title
         if iFantasy.data.docs.length != 0
             | </ul></div>
