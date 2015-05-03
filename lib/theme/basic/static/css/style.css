@@ -35,6 +35,19 @@ a:focus {
   padding-right: 50px;
   padding-top: 20px; }
 
+#msg {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  width: 200px;
+  margin-left: -100px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  display: none;
+  background: #666;
+  color: #FFF; }
+
 #header {
   padding: 58px 0 0;
   text-align: left;
@@ -54,7 +67,8 @@ a:focus {
         color: #777; }
     #header .site-title .site-desc {
       margin: .2em 0 0;
-      color: #999; }
+      color: #999;
+      font-family: "Times New Roman", Georgia, Times, "Microsoft YaHei", sans-serif; }
   #header .header-nav {
     margin: 10px 0 -1px;
     padding: 0;
@@ -115,6 +129,7 @@ a:focus {
 .container.Add #header a.nav-home,
 .container.Edit #header a.nav-home,
 .container.Login #header a.nav-home,
+.container.Search #header a.nav-home,
 .container.Error #header a.nav-home {
   border: 1px solid #ddd;
   border-bottom: 1px solid #fff; }
@@ -131,26 +146,235 @@ a:focus {
     font: bold 25px/1.1 Cambria, "Times New Roman", Georgia, Times, "Microsoft YaHei", sans-serif; }
     .post .post-title a {
       color: #555; }
+  .post .post-func,
   .post .post-date {
     padding: 0;
     margin: 9px 0 0;
     color: #999;
     text-align: left;
     display: block;
-    text-indent: .15em; }
+    text-indent: .15em;
+    font-style: italic; }
+    .post .post-func a,
+    .post .post-date a {
+      display: inline-block;
+      margin-right: 5px;
+      font-style: normal; }
   .post .post-content {
     font-size: 15px;
     line-height: 1.77;
     color: #444;
-    padding-top: 27px;
+    padding-top: 20px;
     overflow: hidden; }
+    .post .post-content .markdown-body {
+      overflow: hidden;
+      line-height: 1.6;
+      word-wrap: break-word; }
+    .post .post-content .markdown-body > *:first-child {
+      margin-top: 0 !important; }
+    .post .post-content .markdown-body > *:last-child {
+      margin-bottom: 0 !important; }
+    .post .post-content .markdown-body a:not([href]) {
+      color: inherit;
+      text-decoration: none; }
+    .post .post-content .markdown-body .absent {
+      color: #c00; }
+    .post .post-content .markdown-body .anchor {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      padding-right: 6px;
+      padding-left: 30px;
+      margin-left: -30px; }
+    .post .post-content .markdown-body .anchor:focus {
+      outline: none; }
+    .post .post-content .markdown-body h1,
+    .post .post-content .markdown-body h2,
+    .post .post-content .markdown-body h3,
+    .post .post-content .markdown-body h4,
+    .post .post-content .markdown-body h5,
+    .post .post-content .markdown-body h6 {
+      position: relative;
+      margin-top: 1em;
+      margin-bottom: 16px;
+      font-weight: bold;
+      line-height: 1.4; }
+    .post .post-content .markdown-body h1 tt,
+    .post .post-content .markdown-body h1 code,
+    .post .post-content .markdown-body h2 tt,
+    .post .post-content .markdown-body h2 code,
+    .post .post-content .markdown-body h3 tt,
+    .post .post-content .markdown-body h3 code,
+    .post .post-content .markdown-body h4 tt,
+    .post .post-content .markdown-body h4 code,
+    .post .post-content .markdown-body h5 tt,
+    .post .post-content .markdown-body h5 code,
+    .post .post-content .markdown-body h6 tt,
+    .post .post-content .markdown-body h6 code {
+      font-size: inherit; }
+    .post .post-content .markdown-body h1 {
+      font-size: 1.5em;
+      line-height: 1.2; }
+    .post .post-content .markdown-body h2 {
+      font-size: 1.4em;
+      line-height: 1.225; }
+    .post .post-content .markdown-body h3 {
+      font-size: 1.3em;
+      line-height: 1.43; }
+    .post .post-content .markdown-body h4 {
+      font-size: 1.2em; }
+    .post .post-content .markdown-body h5 {
+      font-size: 1.1em; }
+    .post .post-content .markdown-body h6 {
+      font-size: 1em;
+      color: #777; }
+    .post .post-content .markdown-body p,
+    .post .post-content .markdown-body blockquote,
+    .post .post-content .markdown-body ul,
+    .post .post-content .markdown-body ol,
+    .post .post-content .markdown-body dl,
+    .post .post-content .markdown-body table,
+    .post .post-content .markdown-body pre {
+      margin-top: 0;
+      margin-bottom: 16px; }
+    .post .post-content .markdown-body hr {
+      height: 4px;
+      padding: 0;
+      margin: 16px 0;
+      background-color: #e7e7e7;
+      border: 0 none; }
+    .post .post-content .markdown-body ul,
+    .post .post-content .markdown-body ol {
+      padding-left: 2em; }
+    .post .post-content .markdown-body ul.no-list,
+    .post .post-content .markdown-body ol.no-list {
+      padding: 0;
+      list-style-type: none; }
+    .post .post-content .markdown-body ul ul,
+    .post .post-content .markdown-body ul ol,
+    .post .post-content .markdown-body ol ol,
+    .post .post-content .markdown-body ol ul {
+      margin-top: 0;
+      margin-bottom: 0; }
+    .post .post-content .markdown-body li > p {
+      margin-top: 16px; }
+    .post .post-content .markdown-body dl {
+      padding: 0; }
+    .post .post-content .markdown-body dl dt {
+      padding: 0;
+      margin-top: 16px;
+      font-size: 1em;
+      font-style: italic;
+      font-weight: bold; }
+    .post .post-content .markdown-body dl dd {
+      padding: 0 16px;
+      margin-bottom: 16px; }
+    .post .post-content .markdown-body blockquote {
+      padding: 0 15px;
+      color: #777;
+      border-left: 4px solid #ddd; }
+    .post .post-content .markdown-body blockquote > :first-child {
+      margin-top: 0; }
+    .post .post-content .markdown-body blockquote > :last-child {
+      margin-bottom: 0; }
+    .post .post-content .markdown-body table {
+      display: block;
+      width: 100%;
+      overflow: auto;
+      word-break: normal;
+      word-break: keep-all; }
+    .post .post-content .markdown-body table th {
+      font-weight: bold; }
+    .post .post-content .markdown-body table th,
+    .post .post-content .markdown-body table td {
+      padding: 6px 13px;
+      border: 1px solid #ddd; }
+    .post .post-content .markdown-body table tr {
+      background-color: #fff;
+      border-top: 1px solid #ccc; }
+    .post .post-content .markdown-body table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    .post .post-content .markdown-body img {
+      max-width: 100%;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box; }
+    .post .post-content .markdown-body code,
+    .post .post-content .markdown-body tt {
+      padding: 0;
+      padding-top: 0.2em;
+      padding-bottom: 0.2em;
+      margin: 0;
+      font-size: 85%;
+      background-color: rgba(0, 0, 0, 0.04);
+      border-radius: 3px;
+      font-family: "Courier New"; }
+    .post .post-content .markdown-body code:before,
+    .post .post-content .markdown-body code:after,
+    .post .post-content .markdown-body tt:before,
+    .post .post-content .markdown-body tt:after {
+      letter-spacing: -0.2em;
+      content: "\00a0"; }
+    .post .post-content .markdown-body code br,
+    .post .post-content .markdown-body tt br {
+      display: none; }
+    .post .post-content .markdown-body del code {
+      text-decoration: inherit; }
+    .post .post-content .markdown-body pre > code {
+      padding: 0;
+      margin: 0;
+      font-size: 100%;
+      word-break: normal;
+      white-space: pre;
+      background: transparent;
+      border: 0; }
+    .post .post-content .markdown-body pre {
+      padding: 16px;
+      overflow: auto;
+      font-size: 85%;
+      line-height: 1.45;
+      background-color: #f7f7f7;
+      border-radius: 3px; }
+    .post .post-content .markdown-body pre {
+      word-wrap: normal; }
+    .post .post-content .markdown-body pre code,
+    .post .post-content .markdown-body pre tt {
+      display: inline;
+      max-width: initial;
+      padding: 0;
+      margin: 0;
+      overflow: initial;
+      line-height: inherit;
+      word-wrap: normal;
+      background-color: transparent;
+      border: 0; }
+    .post .post-content .markdown-body pre code:before,
+    .post .post-content .markdown-body pre code:after,
+    .post .post-content .markdown-body pre tt:before,
+    .post .post-content .markdown-body pre tt:after {
+      content: normal; }
+    .post .post-content .markdown-body kbd {
+      display: inline-block;
+      padding: 3px 5px;
+      font-size: 11px;
+      line-height: 10px;
+      color: #555;
+      vertical-align: middle;
+      background-color: #fcfcfc;
+      border: solid 1px #ccc;
+      border-bottom-color: #bbb;
+      border-radius: 3px;
+      box-shadow: inset 0 -1px 0 #bbb; }
   .post .post-tags {
-    padding-bottom: 1em; }
+    margin: 9px 0 0;
+    border-left: 5px solid #ccc; }
     .post .post-tags a {
-      margin-right: .5em; }
+      margin-left: .7em;
+      display: inline-block; }
       .post .post-tags a:before {
-        content: '#';
-        display: inline-block; }
+        content: "#"; }
+  .post .post-comment {
+    margin-top: 20px; }
 
 .pager {
   border-top: 1px solid #ddd;
@@ -187,9 +411,6 @@ a:focus {
     padding-right: .7em; }
 
 .label-title {
-  margin-top: 0;
-  font-size: 20px;
-  font-weight: normal;
   color: #888; }
 
 strong,

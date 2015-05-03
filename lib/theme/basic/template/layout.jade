@@ -43,8 +43,8 @@ html
                 .pure-u-1.pure-u-md-1-4
                     #sidebar
                         .widget
-                            form#search
-                                input(placeholder="Search", type="text")
+                            form#search(method='get', action='/')
+                                input(placeholder="Search", type="text", name='s', onkeyup="if(event.keyCode == 13) document.forms.search.submit();")
                     
                         .widget
                             .widget-title 账户
@@ -66,13 +66,11 @@ html
             #footer
                 | &copy; 
                 a(href='/')!= iFantasy.site.name
-                | . Authored by 
-                a(href='#{iFantasy.site.homepage}', target='_blank')!= iFantasy.site.author
                 | . Powered by 
                 a(href='https://github.com/icodermo/iFantasy', target='_blank') iFantasy
                 | . Theme by 
                 a(href='http://www.codermo.com', target='_blank') codermo
-                | (inspired by 
+                |  (inspired by 
                 a(href='http://chopstack.com/', target='_blank') cho
                 | ).
                 

@@ -5,12 +5,12 @@ block content
         .post
             h2.post-title
                 a(href='/post/#{post.link}')= post.title
-            .post-date= extend.dateFormat('yyyy-MM-dd hh:mm:ss', post.date)
-            .post-content!= post.brief
             .post-tags
                 for tag in post.tags
                     a(href='/tag/#{tag}')= tag
-
+            .post-date= extend.dateFormat('yyyy-MM-dd hh:mm:ss', post.date)
+            .post-content
+                .markdown-body!= post.brief
     .pager
         - for(var i=1; i<iFantasy.data.pager.pageNum+1; i++)
             if i === iFantasy.data.pager.cpage

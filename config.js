@@ -4,11 +4,13 @@
 module.exports = {
     theme: 'basic',
     site: {
+        domain: 'http://blog.codermo.com',
         title: ' - iFantasy',
         name: '<span>i</span>Fantasy',
         description: 'codermo\'s blog',
         keyword: 'blog, codermo',
-        disqus: 'codermo-blog',
+        disqus: '',
+        duoshuo: 'ifantasy',
         author: 'codermo',
         homepage: 'http://www.codermo.com'
     },
@@ -24,7 +26,7 @@ module.exports = {
     },
     user: {
         md5: true,
-        account: 'test',
+        account: 'codermo',
         password: 'f4360f8417df2ee8d5d55b253e3097e1'
     }
 };
