@@ -7,7 +7,6 @@ block content
         .post-tags
             for tag in iFantasy.data.tags
                 a(href='/tag/#{tag}')= tag
-        .post-date= extend.dateFormat('yyyy-MM-dd hh:mm:ss', iFantasy.data.date)
         if iFantasy.user
             .post-func
                 a(href='/edit/#{iFantasy.data.link}') 编辑

@@ -1,7 +1,7 @@
 body {
     background-color: #FFF;
     color: #444;
-    font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
+    font-family: Helvetica, Arial, Lucida Family, "Microsoft YaHei";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 14px;
@@ -14,7 +14,7 @@ input,
 select,
 textarea,
 .pure-g [class*="pure-u"] {
-    font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
+    font-family: Helvetica, Arial, Lucida Family, "Microsoft YaHei";
 }
 
 a {
@@ -70,7 +70,7 @@ a:focus {
             overflow: hidden;
         }
         .site-name {
-            font: bold 38px/1.12 "Times New Roman", Georgia, Times, "Microsoft YaHei", sans-serif;
+            font: bold 38px/1.12 "Times New Roman", Georgia, Times, sans-serif;
             color: #555;
             span, &:hover {
                 color: #777;
@@ -79,7 +79,7 @@ a:focus {
         .site-desc {
             margin: .2em 0 0;
             color: #999;
-            font-family: "Times New Roman", Georgia, Times, "Microsoft YaHei", sans-serif;
+            font-family: "Times New Roman", Georgia, Times, sans-serif;
         }
     }
     .header-nav {
@@ -161,33 +161,38 @@ a:focus {
 
 .post {
     padding: 25px 0 15px;
+    position: relative;
     .page-title {
         margin: 0;
-        font: bold 25px / 1.1 Cambria, "Times New Roman", Georgia, Times, sans-serif;
+        font: bold 25px / 1.1 Helvetica, Arial, Lucida Family, "Microsoft YaHei";
     }
     .post-title {
         margin: 0;
         color: #555;
         text-align: left;
-        font: bold 25px/1.1 Cambria, "Times New Roman", Georgia, Times, "Microsoft YaHei", sans-serif;
+        font: bold 25px/1.1 Helvetica, Arial, Lucida Family, "Microsoft YaHei";
         a {
             color: #555;
         }
     }
-    .post-func,
-    .post-date {
+    .post-func {
         padding: 0;
         margin: 9px 0 0;
         color: #999;
         text-align: left;
         display: block;
-        text-indent: .15em;
         font-style: italic;
         a {
             display: inline-block;
             margin-right: 5px;
             font-style: normal;
         }
+    }
+    .post-date{
+        font-style: italic;
+        margin-right: 10px;
+        color: #999;
+        font-weight: normal;
     }
     .post-content {
         font-size: 15px;
@@ -437,6 +442,14 @@ a:focus {
             border-radius: 3px;
             box-shadow: inset 0 -1px 0 #bbb;
         }
+        .markdown-body a {
+            padding-bottom: 2px;
+            border-bottom: 1px solid #aaa;
+            word-break: break-all;
+            &:hover {
+                border-bottom-color: #444;
+            }
+        }
     }
     .post-tags {
         margin: 9px 0 0;
@@ -452,10 +465,16 @@ a:focus {
     .post-comment {
         margin-top: 20px;
     }
+    .post-more {
+        margin: 15px 0 0;
+        text-align: right;
+        padding: 0 0 10px 0;
+        border-bottom: 1px dashed #DDD;
+        font-weight: bold;
+    }
 }
 
 .pager {
-    border-top: 1px solid #ddd;
     margin-top: 25px;
     padding: 25px 0;
     font-size: 14px;
@@ -490,7 +509,7 @@ a:focus {
     padding-bottom: .8em;
     h2 {
         margin: 0;
-        font: bold 25px / 1.1 Cambria, "Times New Roman", Georgia, Times, sans-serif;
+        font: bold 25px / 1.1 Helvetica, Arial, Lucida Family, "Microsoft YaHei";
     }
     .date {
         padding-right: .7em;
@@ -501,9 +520,9 @@ a:focus {
     color: #888;
 }
 
-strong,
-b,
-em {
+.label-title strong,
+.label-title b,
+.label-title em {
     padding: 1px 5px;
     margin: 0 3px;
     background-color: #fcfcf0;
